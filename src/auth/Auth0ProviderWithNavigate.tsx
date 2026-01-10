@@ -1,3 +1,4 @@
+import { toaster } from "@/components/ui/toaster";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
@@ -21,6 +22,12 @@ const Auth0ProviderWithNavigate = ({
       cacheLocation="localstorage"
       useRefreshTokens={true}
       onRedirectCallback={(appState) => {
+        toaster.create({
+          title: "Login successful 🎉",
+          description: "You are now logged in.",
+          type: "success",
+        });
+
         navigate(appState?.returnTo || "/dashboard");
       }}
     >
