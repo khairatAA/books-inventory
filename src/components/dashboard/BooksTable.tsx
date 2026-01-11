@@ -12,16 +12,27 @@ import { FiEdit, FiTrash2 } from "react-icons/fi";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { useState } from "react";
 import type { Book } from "./BookModal";
+import { TableEmpty, TableError, TableSkeleton } from "./BooksTableStates";
 
 type BooksTableProps = {
   books: Book[];
+  isLoading?: boolean;
+  isError?: boolean;
   onEdit: (book: Book) => void;
   onDelete: (book: Book) => void;
+  onRetry?: () => void;
 };
 
 const PAGE_SIZE = 10;
 
-const BooksTable = ({ books, onEdit, onDelete }: BooksTableProps) => {
+const BooksTable = ({
+  books,
+  onEdit,
+  onDelete,
+  isError,
+  isLoading,
+  onRetry,
+}: BooksTableProps) => {
   const [currentPage, setCurrentPage] = useState(1);
   const pageCount = Math.ceil(books.length / PAGE_SIZE);
 
@@ -52,33 +63,43 @@ const BooksTable = ({ books, onEdit, onDelete }: BooksTableProps) => {
         </Table.Header>
 
         <Table.Body>
-          {paginatedBooks.map((book) => (
-            <Table.Row key={book.id}>
-              <Table.Cell padding={cellPadding}>{book.name}</Table.Cell>
-              <Table.Cell padding={cellPadding}>{book.description}</Table.Cell>
-              <Table.Cell textAlign="center" padding={cellPadding}>
-                <HStack justify="center" gap={2}>
-                  <IconButton
-                    aria-label="Edit Book"
-                    size="sm"
-                    variant="outline"
-                    onClick={() => onEdit(book)}
-                  >
-                    <FiEdit />
-                  </IconButton>
-                  <IconButton
-                    aria-label="Delete Book"
-                    size="sm"
-                    colorPalette="red"
-                    variant="outline"
-                    onClick={() => onDelete(book)}
-                  >
-                    <FiTrash2 />
-                  </IconButton>
-                </HStack>
-              </Table.Cell>
-            </Table.Row>
-          ))}
+          {isLoading ? (
+            <TableSkeleton />
+          ) : isError ? (
+            <TableError onRetry={onRetry} />
+          ) : paginatedBooks.length === 0 ? (
+            <TableEmpty />
+          ) : (
+            paginatedBooks.map((book) => (
+              <Table.Row key={book.id}>
+                <Table.Cell padding={cellPadding}>{book.name}</Table.Cell>
+                <Table.Cell padding={cellPadding}>
+                  {book.description}
+                </Table.Cell>
+                <Table.Cell textAlign="center" padding={cellPadding}>
+                  <HStack justify="center" gap={2}>
+                    <IconButton
+                      aria-label="Edit Book"
+                      size="sm"
+                      variant="outline"
+                      onClick={() => onEdit(book)}
+                    >
+                      <FiEdit />
+                    </IconButton>
+                    <IconButton
+                      aria-label="Delete Book"
+                      size="sm"
+                      colorPalette="red"
+                      variant="outline"
+                      onClick={() => onDelete(book)}
+                    >
+                      <FiTrash2 />
+                    </IconButton>
+                  </HStack>
+                </Table.Cell>
+              </Table.Row>
+            ))
+          )}
         </Table.Body>
       </Table.Root>
 

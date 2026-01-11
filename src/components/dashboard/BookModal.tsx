@@ -9,7 +9,6 @@ import {
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { bookSchema } from "@/schema/bookSchema";
-import { toaster } from "@/components/ui/toaster";
 import { useEffect } from "react";
 
 export type Book = {
@@ -54,31 +53,12 @@ const BookModal = ({
     reset(book || { name: "", description: "" });
   }, [book, reset]);
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     try {
-      // Wrap the submit call in a Promise for toaster
-      toaster.promise(
-        onSubmitAction(data, book?.id), // TS now knows this returns a Promise
-        {
-          loading: {
-            title: isEditMode ? "Updating book..." : "Creating book...",
-          },
-          success: {
-            title: isEditMode ? "Book updated!" : "Book created!",
-            description: `${data.name} has been successfully ${
-              isEditMode ? "updated" : "added"
-            }.`,
-          },
-          error: {
-            title: isEditMode ? "Update failed" : "Creation failed",
-            description: `Failed to ${isEditMode ? "update" : "create"} ${
-              data.name
-            }.`,
-          },
-        }
-      );
+      // Call the dashboard's onSubmitAction directly
+      await onSubmitAction(data, book?.id);
 
-      // reset form and close modal after success
+      // Reset and close modal
       reset();
       onClose();
     } catch (err) {
