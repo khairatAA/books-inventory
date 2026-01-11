@@ -1,3 +1,17 @@
+/**
+ * DashboardInterface
+ * ------------------
+ * Main interface for managing books in the admin dashboard.
+ *
+ * Responsibilities:
+ * - Fetch books using `useBooks` hook.
+ * - Display books in `BooksTable` with client-side pagination.
+ * - Provide "Add", "Edit", and "Delete" functionality via `BookModal`.
+ * - Show toast notifications for create, update, and delete operations.
+ * - Reverse books list to display latest books first.
+ * - Handles opening/closing of modals and selected book state.
+ */
+
 import { Box, Button, Flex } from "@chakra-ui/react";
 import Navbar from "@/components/layout/Navbar";
 import BookModal, { type Book } from "@/components/dashboard/BookModal";
@@ -13,7 +27,7 @@ const DashboardInterface = () => {
 
   const { booksQuery, addBook, editBook, removeBook } = useBooks();
 
-  const books = booksQuery.data || [];
+  const books = [...(booksQuery.data || [])].reverse();
   const isLoading = booksQuery.isLoading;
 
   const handleAdd = () => {

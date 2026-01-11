@@ -1,3 +1,14 @@
+/**
+ * WelcomeInterface
+ * ----------------
+ * Landing page for unauthenticated users.
+ *
+ * Responsibilities:
+ * - Display a welcome message and brief description of the app.
+ * - Provide "Log In" and "Sign Up" buttons using Auth0.
+ * - Redirect users to /dashboard after login/signup.
+ */
+
 import {
   Box,
   Button,

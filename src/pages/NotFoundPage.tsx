@@ -1,7 +1,17 @@
 import { Box, Button, Heading, Text, Flex, Stack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
-// To be displayed if page is not found
+/**
+ * NotFoundPage
+ * -------------
+ * Displays a 404 page for unmatched routes.
+ *
+ * Responsibilities:
+ * - Inform the user that the page was not found.
+ * - Provide a "Go Back Home" button to navigate to the landing page.
+ * - Responsive and centered layout.
+ */
+
 const NotFoundPage = () => {
   const navigate = useNavigate();
 

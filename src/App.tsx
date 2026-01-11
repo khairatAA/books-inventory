@@ -9,6 +9,20 @@ import NotFoundPage from "./pages/NotFoundPage";
 const WelcomePage = lazy(() => import("./pages/WelcomePage"));
 const DashboardPage = lazy(() => import("./pages/DashboardPage"));
 
+/**
+ * App
+ * ---
+ * Main application component that sets up routing and global UI providers.
+ *
+ * Responsibilities:
+ * - Define client-side routes using React Router v6.
+ * - Lazy load pages (`WelcomePage` and `DashboardPage`) for performance optimization.
+ * - Wrap routes with `PublicRoute` or `PrivateRoute` to enforce authentication.
+ * - Display `SplashScreen` while lazy-loaded pages are loading.
+ * - Render a global `Toaster` for showing toast notifications.
+ * - Handle unmatched routes with `NotFoundPage`.
+ */
+
 function App() {
   return (
     <div className="font-montserrat bg-white h-full w-full">
