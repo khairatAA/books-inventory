@@ -18,7 +18,7 @@ The app provides:
 
 ## Tech Stack
 
-- **Framework:** React 18 (with Next.js or CRA if applicable)
+- **Framework:** React 18
 - **UI:** Chakra UI
 - **State Management:** React Query (`@tanstack/react-query`)
 - **GraphQL Client:** Apollo Client
@@ -79,10 +79,12 @@ yarn install
 
 3. Create a .env file in the root with the following variables:
 
-- VITE_APP_API_BASE_URL=<your-graphql-api>
-- VITE_APP_AUTH0_DOMAIN=<your-auth0-domain>
-- VITE_APP_AUTH0_CLIENT_ID=<your-auth0-client-id>
-- VITE_APP_AUTH0_AUDIENCE=<your-auth0-audience>
+```bash
+- VITE_APP_API_BASE_URL=your-graphql-api
+- VITE_APP_AUTH0_DOMAIN=your-auth0-domain
+- VITE_APP_AUTH0_CLIENT_ID=your-auth0-client-id
+- VITE_APP_AUTH0_AUDIENCE=your-auth0-audience
+```
 
 ---
 
