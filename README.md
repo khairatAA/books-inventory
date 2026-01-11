@@ -80,10 +80,10 @@ yarn install
 3. Create a .env file in the root with the following variables:
 
 ```bash
-- VITE_APP_API_BASE_URL=your-graphql-api
-- VITE_APP_AUTH0_DOMAIN=your-auth0-domain
-- VITE_APP_AUTH0_CLIENT_ID=your-auth0-client-id
-- VITE_APP_AUTH0_AUDIENCE=your-auth0-audience
+ VITE_APP_API_BASE_URL=your-graphql-api
+ VITE_APP_AUTH0_DOMAIN=your-auth0-domain
+ VITE_APP_AUTH0_CLIENT_ID=your-auth0-client-id
+ VITE_APP_AUTH0_AUDIENCE=your-auth0-audience
 ```
 
 ---
