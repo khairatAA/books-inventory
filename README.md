@@ -2,9 +2,9 @@
 
 ## Overview
 
-[BookAdmin](https://your-live-url.com) is a React-based frontend for managing books.  
+[BookAdmin](https://books-inventory-gamma.vercel.app/) is a React-based frontend for managing books.  
 It integrates with a GraphQL backend using Apollo Client and handles authentication via Auth0. The UI is built with Chakra UI for a responsive and accessible design.
-Live demo: https://your-live-url.com
+Live demo: https://books-inventory-gamma.vercel.app/
 
 The app provides:
 
