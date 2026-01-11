@@ -7,6 +7,7 @@ import {
   Table,
   HStack,
   useBreakpointValue,
+  Text,
 } from "@chakra-ui/react";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
@@ -23,7 +24,7 @@ type BooksTableProps = {
   onRetry?: () => void;
 };
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 5;
 
 const BooksTable = ({
   books,
@@ -72,10 +73,17 @@ const BooksTable = ({
           ) : (
             paginatedBooks.map((book) => (
               <Table.Row key={book.id}>
-                <Table.Cell padding={cellPadding}>{book.name}</Table.Cell>
-                <Table.Cell padding={cellPadding}>
-                  {book.description}
+                <Table.Cell
+                  padding={cellPadding}
+                  width={{ base: 100, md: 200 }}
+                >
+                  <Text lineClamp={{ base: 3, md: 4 }}>{book.name}</Text>
                 </Table.Cell>
+
+                <Table.Cell padding={cellPadding}>
+                  <Text lineClamp={{ base: 3, md: 5 }}>{book.description}</Text>
+                </Table.Cell>
+
                 <Table.Cell textAlign="center" padding={cellPadding}>
                   <HStack justify="center" gap={2}>
                     <IconButton

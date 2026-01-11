@@ -57,11 +57,11 @@ export const TableError = ({
 // Empty row
 export const TableEmpty = ({
   colCount = 3,
-  message = "No data found.",
+  message = "No book added yet.",
 }: TableStateProps) => {
   return (
     <Table.Row>
-      <Table.Cell colSpan={colCount} textAlign="center" padding={2}>
+      <Table.Cell colSpan={colCount} textAlign="center" padding={5}>
         <Text color="gray.500">{message}</Text>
       </Table.Cell>
     </Table.Row>

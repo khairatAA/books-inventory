@@ -82,7 +82,11 @@ const BookModal = ({
               {/* Book Name */}
               <Field.Root invalid={!!errors.name}>
                 <Field.Label>Book Name</Field.Label>
-                <Input placeholder="Enter book name" {...register("name")} />
+                <Input
+                  placeholder="Enter book name"
+                  padding={1}
+                  {...register("name")}
+                />
                 {errors.name && (
                   <Field.ErrorText>{errors.name.message}</Field.ErrorText>
                 )}
@@ -93,7 +97,8 @@ const BookModal = ({
                 <Field.Label>Description</Field.Label>
                 <Textarea
                   placeholder="Enter book description"
-                  minHeight="5lh"
+                  padding={1}
+                  minHeight={{ base: "4lh", md: "6lh" }}
                   {...register("description")}
                 />
                 {errors.description && (

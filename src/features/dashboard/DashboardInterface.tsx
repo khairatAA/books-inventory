@@ -77,7 +77,7 @@ const DashboardInterface = () => {
       <Box minH="100vh" bg="gray.50">
         <Navbar />
 
-        <Box px={{ base: 4, md: 8 }} py={6}>
+        <Box maxW="7xl" mx="auto" px={{ base: 4, md: 8 }} py={6}>
           <Flex justify="flex-start" mb={6}>
             <Button paddingInline={3} onClick={handleAdd}>
               <FiPlus />
