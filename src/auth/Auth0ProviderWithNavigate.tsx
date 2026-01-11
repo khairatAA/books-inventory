@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const domain = import.meta.env.VITE_APP_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_APP_AUTH0_CLIENT_ID;
+const audience = import.meta.env.VITE_APP_AUTH0_AUDIENCE;
 
 type Auth0ProviderWithNavigateProps = {
   children: React.ReactNode;
@@ -18,7 +19,10 @@ const Auth0ProviderWithNavigate = ({
     <Auth0Provider
       domain={domain}
       clientId={clientId}
-      authorizationParams={{ redirect_uri: window.location.origin }}
+      authorizationParams={{
+        redirect_uri: window.location.origin,
+        audience: audience,
+      }}
       cacheLocation="localstorage"
       useRefreshTokens={true}
       onRedirectCallback={(appState) => {

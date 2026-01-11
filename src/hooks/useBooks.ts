@@ -1,37 +1,29 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
+import { useBooksApi } from "@/lib/graphql";
 import type { Book } from "@/components/dashboard/BookModal";
-import {
-  createBook,
-  deleteBook,
-  getBooks,
-  updateBook,
-} from "@/components/services/books";
 
 export const useBooks = () => {
-  const queryClient = useQueryClient();
+  const { getBooks, createBook, updateBook, deleteBook } = useBooksApi();
 
-  // Fetch books
-  const booksQuery = useQuery<Book[]>({
+  const booksQuery = useQuery({
     queryKey: ["books"],
     queryFn: getBooks,
   });
 
-  // Add book mutation
-  const addBook = useMutation<Book, Error, Book>({
+  const addBook = useMutation({
     mutationFn: createBook,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["books"] }),
+    onSuccess: () => booksQuery.refetch(),
   });
 
-  // Edit book mutation
-  const editBook = useMutation<Book, Error, { id: number; book: Book }>({
-    mutationFn: ({ id, book }) => updateBook(id, book),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["books"] }),
+  const editBook = useMutation({
+    mutationFn: ({ id, book }: { id: number; book: Partial<Book> }) =>
+      updateBook(id, book),
+    onSuccess: () => booksQuery.refetch(),
   });
 
-  // Delete book mutation
-  const removeBook = useMutation<void, Error, number>({
-    mutationFn: (id: number) => deleteBook(id),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["books"] }),
+  const removeBook = useMutation({
+    mutationFn: deleteBook,
+    onSuccess: () => booksQuery.refetch(),
   });
 
   return { booksQuery, addBook, editBook, removeBook };
