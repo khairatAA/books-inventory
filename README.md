@@ -2,8 +2,9 @@
 
 ## Overview
 
-BookAdmin is a React-based frontend for managing books.  
+[BookAdmin](https://your-live-url.com) is a React-based frontend for managing books.  
 It integrates with a GraphQL backend using Apollo Client and handles authentication via Auth0. The UI is built with Chakra UI for a responsive and accessible design.
+Live demo: https://your-live-url.com
 
 The app provides:
 
@@ -42,6 +43,7 @@ The app provides:
 
 ## Project Structure
 
+```bash
 src/
 │
 ├── components/ # Reusable UI components
@@ -54,6 +56,7 @@ src/
 ├── pages/ # Page-level components (Dashboard, Login, etc.)
 ├── schema/ # Validation schemas (yup)
 └── main.tsx # App entry, QueryClientProvider, AuthApolloProvider
+```
 
 ---
 
@@ -62,34 +65,38 @@ src/
 1. Clone the repository:
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/khairatAA/books-inventory.git
 cd frontend
 ```
 
 2. Install dependencies:
 
+```bash
 npm install
-
-# or
-
+or
 yarn install
+```
 
 3. Create a .env file in the root with the following variables:
 
-VITE_APP_API_BASE_URL=<your-graphql-api>
-VITE_APP_AUTH0_DOMAIN=<your-auth0-domain>
-VITE_APP_AUTH0_CLIENT_ID=<your-auth0-client-id>
-VITE_APP_AUTH0_AUDIENCE=<your-auth0-audience>
+- VITE_APP_API_BASE_URL=<your-graphql-api>
+- VITE_APP_AUTH0_DOMAIN=<your-auth0-domain>
+- VITE_APP_AUTH0_CLIENT_ID=<your-auth0-client-id>
+- VITE_APP_AUTH0_AUDIENCE=<your-auth0-audience>
+
+---
 
 ## Running the App
 
-npm run dev
-
-# or
-
-yarn dev
+```bash
+npm install
+or
+yarn install
+```
 
 Visit http://localhost:5173 to view the app.
+
+---
 
 ## Usage
 
