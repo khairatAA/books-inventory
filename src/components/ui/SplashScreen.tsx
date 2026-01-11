@@ -1,5 +1,12 @@
 import { Box, Spinner, Stack, Text, Flex } from "@chakra-ui/react";
 
+/**
+ * SplashScreen
+ * -------------
+ * Full-screen loading indicator shown during app initialization
+ * or authentication checks.
+ */
+
 const SplashScreen = () => {
   return (
     <Flex minH="100vh" align="center" justify="center" bg="gray.50">

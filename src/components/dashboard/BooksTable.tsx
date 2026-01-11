@@ -1,4 +1,14 @@
-"use client";
+/**
+ * BooksTable
+ * ----------
+ * Displays a paginated table of books with edit and delete actions.
+ *
+ * Responsibilities:
+ * - Renders loading, error, empty, and populated table states
+ * - Handles client-side pagination
+ * - Truncates long text responsively to prevent layout overflow
+ * - Exposes edit and delete actions to the parent component
+ */
 
 import {
   Button,

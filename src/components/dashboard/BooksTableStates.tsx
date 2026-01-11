@@ -1,3 +1,14 @@
+/**
+ * BooksTableStates
+ * ----------------
+ * Shared table UI states for the BooksTable component.
+ *
+ * Includes:
+ * - TableSkeleton: displays placeholder rows during data loading
+ * - TableError: displays an error message with optional retry action
+ * - TableEmpty: displays a friendly message when no data is available
+ */
+
 import { Skeleton, Text, Button, Table } from "@chakra-ui/react";
 
 interface TableStateProps {

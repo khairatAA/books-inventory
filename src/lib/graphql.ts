@@ -2,6 +2,17 @@ import { gql } from "@apollo/client";
 import { useApolloClient } from "@apollo/client/react";
 import type { Book } from "@/components/dashboard/BookModal";
 
+/**
+ * useBooksApi
+ * ------------
+ * Custom hook providing GraphQL operations for book management.
+ *
+ * Responsibilities:
+ * - Exposes CRUD operations (get, create, update, delete) for books
+ * - Uses Apollo Client for querying/mutating the backend
+ * - Throws an error if a mutation/query returns no data
+ */
+
 export const useBooksApi = () => {
   const client = useApolloClient();
 

@@ -1,3 +1,15 @@
+/**
+ * BookModal
+ * ---------
+ * Modal dialog for creating and editing books.
+ *
+ * Responsibilities:
+ * - Handles both "add" and "edit" modes based on the presence of a book prop
+ * - Manages form state and validation using react-hook-form + Yup
+ * - Pre-fills form values when editing an existing book
+ * - Delegates create/update logic to the parent via onSubmitAction
+ */
+
 import {
   Button,
   Dialog,

@@ -8,6 +8,17 @@ interface Props {
   children: ReactNode;
 }
 
+/**
+ * AuthApolloProvider
+ * -----------------
+ * Wraps the React app with ApolloProvider and injects authentication headers.
+ *
+ * Responsibilities:
+ * - Creates Apollo Client with HTTP + Auth links
+ * - Retrieves Auth0 access token silently and attaches it to GraphQL requests
+ * - Provides a memoized Apollo Client instance to avoid unnecessary re-renders
+ */
+
 export const AuthApolloProvider: React.FC<Props> = ({ children }) => {
   const { getAccessTokenSilently } = useAuth0();
 

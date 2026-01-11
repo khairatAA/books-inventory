@@ -2,6 +2,18 @@ import { toaster } from "@/components/ui/toaster";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Wraps the application with Auth0 authentication context and integrates
+ * React Router navigation for post-login redirects.
+ *
+ * Responsibilities:
+ * - Configures Auth0 using environment variables
+ * - Persists authentication state using localStorage
+ * - Handles login redirect callback
+ * - Displays a success toast on successful authentication
+ * - Redirects users to their intended route or dashboard
+ */
+
 const domain = import.meta.env.VITE_APP_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_APP_AUTH0_CLIENT_ID;
 const audience = import.meta.env.VITE_APP_AUTH0_AUDIENCE;

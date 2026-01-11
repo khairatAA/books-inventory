@@ -6,6 +6,18 @@ type PublicRouteProps = {
   children: JSX.Element;
 };
 
+/**
+ * PublicRoute
+ * -----------
+ * Route guard component for public (unauthenticated) pages.
+ *
+ * Responsibilities:
+ * - Allows access only to unauthenticated users
+ * - Prevents authenticated users from accessing public routes (e.g. login page)
+ * - Redirects authenticated users to the dashboard
+ * - Avoids UI flicker while Auth0 authentication state is initializing
+ */
+
 const PublicRoute = ({ children }: PublicRouteProps) => {
   const { isAuthenticated, isLoading } = useAuth0();
 

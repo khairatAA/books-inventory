@@ -7,6 +7,19 @@ type PrivateRouteProps = {
   children: JSX.Element;
 };
 
+/**
+ * PrivateRoute
+ * ------------
+ * Route guard component that restricts access to authenticated users only.
+ *
+ * Responsibilities:
+ * - Checks authentication state using Auth0
+ * - Prevents unauthenticated users from accessing protected routes
+ * - Displays a warning toast when authentication is required
+ * - Redirects unauthenticated users to the login page
+ * - Preserves the originally requested route for post-login redirect
+ */
+
 const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const { isAuthenticated, isLoading } = useAuth0();
   const location = useLocation();

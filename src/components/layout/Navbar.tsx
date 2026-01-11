@@ -2,6 +2,17 @@ import { Box, Flex, Text, Button, HStack, Avatar } from "@chakra-ui/react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FiLogOut, FiUser } from "react-icons/fi";
 
+/**
+ * Navbar
+ * ------
+ * Top navigation bar for the dashboard.
+ *
+ * Responsibilities:
+ * - Displays application branding
+ * - Shows authenticated user information (avatar + name/email)
+ * - Provides a logout action via Auth0
+ */
+
 const Navbar = () => {
   const { user, logout } = useAuth0();
 
